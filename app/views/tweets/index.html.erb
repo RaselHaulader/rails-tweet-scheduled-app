@@ -1,0 +1,38 @@
+<div >
+  <h1 class="text-center">Tweets</h1>
+  <hr/>
+  <% if Current.user.twitter_accounts.any? %>
+    <%= link_to "Scheduled a tweet", new_tweet_path, class: "btn btn-primary m-auto d-block w-25" %>
+  <% end %>
+  <% if Current.user.twitter_accounts.none? %>
+    <%= button_to "First connect your Twitter Account" , "/auth/twitter", method: :post, class: "btn btn-primary m-auto d-block w-50" , data: { turbo: false } %> 
+  <% end %>
+  </br></br>
+  <%= render @tweets %>
+  <%
+=begin%>
+ <div>
+    <h2>Published Tweets</h2>
+    <hr/>
+    <% @tweets.each do |tweet| %>
+      <% if tweet.published? %>
+        <div class="tweet-card">
+          <a href="https://twitter.com/<%= tweet.twitter_account.username %>" class="tweet-card-img" target="_blank">
+            <%= image_tag tweet.twitter_account.image, class: "rounded-circle" %>
+          </a>
+          <div class="tweet-body">
+            <%= tweet.body %> hello huynnnd afgadfsg asdfg ertg evba dgszd fgset ghaer gvbas dvaws vawe rgae rrgvawe scv asdv asf vae rgae rg afv asdv asdf gaeghaetg asev asdfgerag asdvasdfv asdfgvg adfv adcv saf vaeegh
+          </div>
+          <div class="tweet-card-btn">
+            <%= link_to "View Tweet", "https://twitter.com/#{tweet.twitter_account.username}/status/#{tweet.tweet_id}", target: :_blank, class: "btn btn-success ms-5"%>
+          </div>
+          <div class="tweet-card-delete">
+            <%= button_to  "Delete", tweet_path(tweet), method: :delete, data: { turbo: false, turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div> 
+<%
+=end%>
+</div>

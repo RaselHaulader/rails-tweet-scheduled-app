@@ -1,0 +1,23 @@
+<div class="mb-3">
+  <div class="tweet-card">
+    <a href="https://twitter.com/<%= tweet.twitter_account.username %>" class="tweet-card-img" target="_blank">
+      <%= image_tag tweet.twitter_account.image, class: "rounded-circle" %>
+    </a>
+    <div class="tweet-body">
+      <%= tweet.body %>
+    </div>
+    <% if tweet.published? %>
+      <div class="tweet-card-btn">
+        <%= link_to "View Tweet", "https://twitter.com/#{tweet.twitter_account.username}/status/#{tweet.tweet_id}", target: :_blank, class: "btn btn-success"%>
+      </div>
+    <% else %>
+      <div class="tweet-card-btn">
+        <h6> Scheduled for: <%= l tweet.publish_at, format: :short %> </h6>
+        <%= link_to "Edit tweet", edit_tweet_path(tweet), class: "btn btn-info" %>
+      </div>
+    <% end %>
+    <div class="tweet-card-delete">
+      <%= button_to  "Delete", tweet_path(tweet), method: :delete, data: { turbo: false, turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+    </div>
+  </div>
+</div>

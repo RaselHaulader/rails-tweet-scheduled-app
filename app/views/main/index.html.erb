@@ -1,0 +1,25 @@
+<h1 class="text-center"> Welcome To Scheduled Tweet App </h1>
+<hr/>
+<div class="text-center">
+  <% if Current.user %>
+    <div class="logged-in-info">
+      <p> You are Logged in with 
+      <br>
+      email: <span class="email"> <%= Current.user.email %></span></p>
+    </div>
+    <div class="logged-in-info mt-2">
+        <% if Current.user.twitter_accounts.any? %>
+         <p >Scheduled a tweet.</p>
+          <%= link_to "Scheduled", new_tweet_path, class: "btn btn-primary" %>
+        <% else %>
+          <p >You need to connect a twitter account to scheduled tweets.</p>
+          <%= button_to "Connect" , "/auth/twitter", method: :post, class: "btn btn-primary ms-2" , data: { turbo: false } %> 
+        <% end %>
+     </div>
+  <% else %>
+   <div class="logged-in-info">
+    <p>Please login first to scheduled a tweet.</p>
+     <%= link_to "Sign In", sign_in_path, class: "nav-link btn btn-primary" %>
+   </div>
+  <% end %>
+</div>

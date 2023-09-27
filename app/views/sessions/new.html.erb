@@ -1,0 +1,19 @@
+<div>
+  <h1 class="text-center">Sign In</h1>
+  <hr/>
+  <div class="form-container">
+    <%= form_with url: sign_in_path, data: { turbo: false } do |form| %>
+      <div class="mb-3">
+        <%= form.label :email %></br>
+        <%= form.text_field :email, placeholder: "Enter Your Email" %>
+      </dv></br></br>
+      <div class="mb-3">
+        <%= form.label :password %></br>
+        <%= form.password_field :password, placeholder: "Enter Your Password" %>
+      </dv></br></br>
+      <div class="mb-3">
+        <%= form.submit "Sign In", class: "btn btn-primary" %>
+      </dv>
+    <% end %>
+  </dv>
+</dv>

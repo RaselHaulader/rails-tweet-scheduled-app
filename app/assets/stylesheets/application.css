@@ -1,0 +1,134 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+body {
+  color: rgba(54, 54, 54, 0.712);
+}
+
+.navbar-expand-lg .navbar-nav {
+  justify-content: space-between;
+  width: 100%;
+}
+
+.navbar-expand-lg .navbar-nav > div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.logged-in-info {
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+  padding: 10px;
+  width: 75%;
+  border-radius: 10px;
+  margin: auto;
+}
+
+.logged-in-info .btn {
+  width: 100px;
+  color: #fff;
+  margin: auto;
+}
+
+.logged-in-info p {
+  font-weight: 600;
+  margin: 5px;
+}
+
+.logged-in-info .email {
+   color: rgb(86, 86, 249);
+}
+
+.form-container {
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+  padding: 30px;
+  width: 75%;
+  border-radius: 10px;
+  margin: auto;
+}
+
+.form-container input {
+  width: 100%;
+  border: 1px solid rgb(183, 183, 183);
+  border-radius: 5px;
+}
+
+.form-container input::placeholder {
+  color: #cbcbcba9;
+}
+
+.tweet-card {
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+  border-radius: 10px;
+  padding: 15px 5px;
+}
+
+.tweet-card,
+.account-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+}
+
+.account-card {
+  margin: auto;
+  width: 75%;
+  justify-content: space-around;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+}
+
+.account-card .account-card-link {
+  margin: 0 30px;
+  text-decoration: none;
+}
+
+.tweet-body {
+  width: 35%;
+  max-height: 61px;
+  padding: 5px;
+  overflow-y: scroll;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}
+
+
+
+.tweet-body::-webkit-scrollbar {
+  display: none;
+}
+
+.tweet-card-img {
+  width: 10%;
+}
+
+.tweet-card-btn {
+  width: 45%;
+  padding: 10px;
+}
+
+.tweet-card-delete {
+  width: 10%
+}
+
+@media only screen and (min-width: 990px) {
+  .navbar-expand-lg .navbar-nav > div {
+    flex-direction: row;
+  }
+
+  .form-container {
+    width: 500px;
+  }
+}

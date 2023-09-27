@@ -1,0 +1,16 @@
+<div >
+  <h1 class="text-center">Twitter Accounts</h1>
+  <hr/>
+<%= button_to "Connect with Twitter" , "/auth/twitter", method: :post, class: "btn btn-primary m-auto d-block w-25" , data: { turbo: false } %> </br></br>
+<% @twitter_accounts.each do |twitter_account| %>
+  <div class="account-card card card-body mb-3">
+    <div class="account-img">
+      <%= image_tag twitter_account.image, class: "rounded-circle" %>
+    </div>
+    <%= link_to "@#{twitter_account.name}", "https://twitter.com/#{twitter_account.username}", target: :_blank, class: "account-card-link" %>
+    <div class="account-card-delete">
+      <%= button_to  "Delete", twitter_account, method: :delete, data: { turbo: false, turbo_method: :delete,  turbo_confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+    </div>
+  </div>
+<% end %>
+</div>
